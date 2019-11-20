@@ -53,7 +53,7 @@ public class ClienteDAO extends BaseDAO{
 		List<Cliente> clientes = new ArrayList<>();
 		try {
             Connection conn = getConnection();
-			String sql = "SELECT * FROM clientes WHERE LOWER(nome) LIKE ? ORDER BY nome";
+			String sql = "SELECT * FROM clientes WHERE nome LIKE ? ORDER BY nome";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, nome.toLowerCase() + "%");
 			ResultSet rs = stmt.executeQuery();
