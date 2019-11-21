@@ -1,21 +1,30 @@
 package br.edu.ifsul.model;
 
 public class Produto {
-    private int id;
+    private Long id;
     private String nome;
-    private double valor;
+    private String descricao;
+    private Double valor;
+    private Integer estoque;
+    private Boolean situacao;
 
-    public Produto(int id, String nome, double valor) {
-        this.id = id;
-        this.nome = nome;
-        this.valor = valor;
+    public Produto() {
     }
 
-    public int getId() {
+    public Produto(Long id, String nome, String descricao, Double valor, Integer estoque, Boolean situacao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+        this.estoque = estoque;
+        this.situacao = situacao;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -27,20 +36,47 @@ public class Produto {
         this.nome = nome;
     }
 
-    public double getValor() {
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public Integer getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
+
+    public Boolean getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(Boolean situacao) {
+        this.situacao = situacao;
     }
 
     @Override
     public String toString() {
-        return "Produto{" +
+        return "\nProduto{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
                 ", valor=" + valor +
+                ", estoque=" + estoque +
+                ", situacao=" + situacao +
                 '}';
     }
 }

@@ -6,7 +6,7 @@ public class Cliente {
     private Long id;
     private String nome;
     private String sobrenome;
-    private boolean situação;
+    private Boolean situação;
     private List<Pedido> pedidos; //expressa a ligação entre as classes Cliente com Pedido
 
     public Cliente() {
@@ -51,11 +51,11 @@ public class Cliente {
         this.sobrenome = sobrenome;
     }
 
-    public boolean isSituação() {
+    public Boolean isSituação() {
         return situação;
     }
 
-    public void setSituação(boolean situação) {
+    public void setSituação(Boolean situação) {
         this.situação = situação;
     }
 

@@ -11,7 +11,7 @@ public class ClienteDAO extends BaseDAO{
 	public List<Cliente> getClientes(){
 		List<Cliente> clientes = new ArrayList<>();
 		try {
-            Connection conn = getConnection();
+			Connection conn = getConnection();
 			String sql = "SELECT * FROM clientes";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -128,12 +128,12 @@ public class ClienteDAO extends BaseDAO{
 		}
 	}
 
-	public boolean softDelete(long id){
+	public boolean softDelete(long id, boolean situacao){
 		try {
             Connection conn = getConnection();
 			String sql = "UPDATE clientes SET situacao=? WHERE id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setBoolean(1, false);
+			stmt.setBoolean(1, situacao);
 			stmt.setLong(2, id);
 			int count = stmt.executeUpdate();
 			stmt.close();
@@ -161,7 +161,7 @@ public class ClienteDAO extends BaseDAO{
 		ClienteDAO clienteDAO = new ClienteDAO();
 
 		//Cliente cliente = new Cliente(3L, "João", "Vitório", true);
-		System.out.println(clienteDAO.softDelete(3L));
+		System.out.println(clienteDAO.softDelete(3L, false));
 	}
 	
 }
